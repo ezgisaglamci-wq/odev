@@ -1,6 +1,6 @@
 {
-  "name": "ShipAI - Maritime Intelligence",
-  "description": "AI-powered maritime logistics platform for vessel-cargo matching, market analysis, and fleet management.",
+  "name": "ShipAI - Denizcilik Zekası",
+  "description": "Yapay zeka destekli denizcilik lojistik platformu; gemi-yük eşleştirme, piyasa analizi, sefer takibi ve filo yönetimi için komuta merkezi.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
