@@ -51,7 +51,7 @@ import {
   Github,
   Home,
 } from 'lucide-react';
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 // --- Types ---
@@ -88,9 +88,11 @@ const NAV_LINKS: { id: GlobalView; label: string }[] = [
 const LandingHeader = ({
   setView,
   current,
+  appName,
 }: {
   setView: (v: GlobalView) => void;
   current: GlobalView;
+  appName: string;
 }) => (
   <header className="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant h-16 flex items-center px-6 md:px-8 justify-between">
     <button
@@ -101,7 +103,7 @@ const LandingHeader = ({
     >
       <Anchor className="text-primary size-6" />
       <span className="font-serif text-xl font-bold text-primary tracking-tight">
-        ShipAI
+        {appName}
       </span>
     </button>
     <nav className="hidden lg:flex gap-6" aria-label="Ana navigasyon">
@@ -143,7 +145,7 @@ const LandingFooter = ({ setView }: { setView: (v: GlobalView) => void }) => (
         <div className="flex items-center gap-2 mb-6">
           <Anchor className="text-secondary size-8" />
           <span className="font-serif text-2xl font-bold text-on-primary tracking-tight">
-            ShipAI
+            {appName}
           </span>
         </div>
         <p className="text-sm text-on-primary/60 max-w-sm leading-relaxed">
@@ -346,7 +348,7 @@ const CTAStrip = ({ setView }: { setView: (v: GlobalView) => void }) => (
 
 // --- Landing Pages ---
 
-const LandingHeroView = ({ setView }: { setView: (v: GlobalView) => void }) => {
+const LandingHeroView = ({ setView, appName }: { setView: (v: GlobalView) => void; appName: string }) => {
   const stats = [
     { v: '%98', l: 'Eşleşme Doğruluğu' },
     { v: '12.4K', l: 'Aktif Gemi' },
@@ -422,7 +424,7 @@ const LandingHeroView = ({ setView }: { setView: (v: GlobalView) => void }) => {
 
   return (
     <div className="flex flex-col">
-      <LandingHeader setView={setView} current="landing" />
+      <LandingHeader setView={setView} current="landing" appName={appName} />
 
       {/* HERO */}
       <section className="relative min-h-screen flex items-center pt-16 overflow-hidden bg-primary-container text-on-primary-container">
@@ -1530,10 +1532,14 @@ const Sidebar = ({
   activeTab,
   setActiveTab,
   setGlobalView,
+  appName,
+  onOpenSettings,
 }: {
   activeTab: AppTab;
   setActiveTab: (t: AppTab) => void;
   setGlobalView: (v: GlobalView) => void;
+  appName: string;
+  onOpenSettings: () => void;
 }) => {
   const navItems: { id: AppTab; icon: typeof Home; label: string }[] = [
     { id: 'overview', icon: Home, label: 'Genel Bakış' },
@@ -1558,7 +1564,7 @@ const Sidebar = ({
         </div>
         <div>
           <h1 className="font-serif text-xl font-black text-on-primary leading-none">
-            ShipAI
+            {appName}
           </h1>
           <p className="text-[10px] text-on-primary-container uppercase tracking-widest font-mono mt-1">
             Command Center
@@ -1595,18 +1601,18 @@ const Sidebar = ({
           Hesap
         </p>
         <div className="flex flex-col gap-1">
-          <button className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary/70 hover:bg-on-primary/10 hover:text-on-primary transition-all text-left">
+          <button onClick={onOpenSettings} className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary/70 hover:bg-on-primary/10 hover:text-on-primary transition-all text-left">
             <Settings className="size-5 shrink-0" />
             <span className="font-mono text-[11px] uppercase tracking-wider">
               Ayarlar
             </span>
           </button>
-          <button className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary/70 hover:bg-on-primary/10 hover:text-on-primary transition-all text-left">
+          <a href="https://help.openai.com" target="_blank" rel="noreferrer" className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-on-primary/70 hover:bg-on-primary/10 hover:text-on-primary transition-all text-left">
             <HelpCircle className="size-5 shrink-0" />
             <span className="font-mono text-[11px] uppercase tracking-wider">
               Yardım Merkezi
             </span>
-          </button>
+          </a>
         </div>
       </div>
     </nav>
@@ -3197,6 +3203,13 @@ const AppFooter = () => (
 export default function App() {
   const [globalView, setGlobalView] = useState<GlobalView>('landing');
   const [activeTab, setActiveTab] = useState<AppTab>('overview');
+  const [appName, setAppName] = useState('Fix AI');
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('app_name');
+    if (saved) setAppName(saved);
+  }, []);
 
   const getTitle = () => {
     switch (activeTab) {
@@ -3252,7 +3265,7 @@ export default function App() {
             transition={{ duration: 0.4 }}
           >
             {globalView === 'landing' && (
-              <LandingHeroView setView={setGlobalView} />
+              <LandingHeroView setView={setGlobalView} appName={appName} />
             )}
             {globalView === 'solutions' && (
               <SolutionsView setView={setGlobalView} />
@@ -3282,6 +3295,8 @@ export default function App() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         setGlobalView={setGlobalView}
+        appName={appName}
+        onOpenSettings={() => setIsSettingsOpen(true)}
       />
 
       <div className="ml-64 flex flex-col min-h-screen">
@@ -3392,6 +3407,25 @@ export default function App() {
         </main>
 
         <AppFooter />
+        {isSettingsOpen && (
+          <div className="fixed inset-0 bg-primary/40 backdrop-blur-sm z-[60] flex items-center justify-center p-4">
+            <div className="w-full max-w-md bg-white rounded-2xl border border-outline-variant shadow-2xl p-6">
+              <h3 className="font-serif text-2xl font-bold text-primary mb-2">Panel Ayarları</h3>
+              <p className="text-sm text-on-surface-variant mb-5">Uygulama adını buradan güncelleyebilirsiniz.</p>
+              <input
+                value={appName}
+                onChange={(e) => setAppName(e.target.value)}
+                className="w-full h-11 px-4 border border-outline-variant rounded-lg focus:outline-none focus:border-secondary"
+                placeholder="Uygulama adı"
+              />
+              <div className="mt-6 flex justify-end gap-3">
+                <button onClick={() => setIsSettingsOpen(false)} className="px-4 h-10 rounded-lg border border-outline-variant text-sm font-semibold">Vazgeç</button>
+                <button onClick={() => { localStorage.setItem('app_name', appName || 'Fix AI'); setIsSettingsOpen(false); }} className="px-5 h-10 rounded-lg bg-primary text-on-primary text-sm font-semibold">Kaydet</button>
+              </div>
+            </div>
+          </div>
+        )}
+
       </div>
     </div>
   );
