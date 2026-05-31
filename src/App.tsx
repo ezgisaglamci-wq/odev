@@ -2939,6 +2939,7 @@ const CargoInquiryView = () => {
                     setFormData({ ...formData, laycanEnd: e.target.value })
                   }
                   className="w-full h-12 px-4 bg-surface-container-low border border-outline-variant rounded-xl focus:outline-none focus:border-secondary transition-all font-mono text-sm"
+                        
                 />
               </div>
             </div>
