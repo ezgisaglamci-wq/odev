@@ -255,7 +255,7 @@ const LandingFooter = ({ setView }: { setView: (v: GlobalView) => void }) => (
     </div>
     <hr className="border-on-primary/10 my-10 max-w-7xl mx-auto" />
     <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] font-mono font-bold uppercase tracking-widest text-on-primary/40">
-      <p>© 2026 ShipAI Technologies. Tüm hakları saklıdır.</p>
+      <p>© 2026 CYPEX Tüm hakları saklıdır.</p>
       <div className="flex gap-6 md:gap-8">
         <span className="hover:text-white cursor-pointer transition-colors">
           Gizlilik Politikası
@@ -401,7 +401,7 @@ const LandingHeroView = ({ setView, appName }: { setView: (v: GlobalView) => voi
   const testimonials = [
     {
       quote:
-        'ShipAI sayesinde charter ekibimiz aynı sürede üç katı işlem kapatıyor. Eşleştirme motoru manuel taramada gözden kaçırdığımız fırsatları yakalıyor.',
+        'CHPEX sayesinde charter ekibimiz aynı sürede üç katı işlem kapatıyor. Eşleştirme motoru manuel taramada gözden kaçırdığımız fırsatları yakalıyor.',
       name: 'Daniel Okonkwo',
       role: 'Chartering Director',
       company: 'Atlantic Bulk Carriers',
@@ -449,7 +449,7 @@ const LandingHeroView = ({ setView, appName }: { setView: (v: GlobalView) => voi
               <span className="text-secondary">Yapay Zeka ile Şekilleniyor</span>
             </h1>
             <p className="text-lg text-on-primary/80 max-w-2xl leading-relaxed">
-              ShipAI, armatörleri ve kiracıları benzeri görülmemiş{' '}
+              CYPEX, armatörleri ve kiracıları benzeri görülmemiş{' '}
               <span className="text-secondary font-bold">%98 doğrulukla</span>{' '}
               birbirine bağlar. E-posta zincirlerini, dağınık tabloları ve manuel
               önsezileri öngörücü zekayla değiştirin; her kontratta dakikalar
@@ -469,17 +469,7 @@ const LandingHeroView = ({ setView, appName }: { setView: (v: GlobalView) => voi
                 Nasıl Çalışır?
               </button>
             </div>
-            <div className="flex flex-wrap gap-6 pt-6 text-xs font-mono text-on-primary/60 uppercase tracking-widest">
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-secondary" /> 14 gün ücretsiz
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-secondary" /> Kart gerekmez
-              </span>
-              <span className="flex items-center gap-2">
-                <CheckCircle2 className="size-4 text-secondary" /> SOC 2 uyumlu
-              </span>
-            </div>
+            <div className="flex flex-wrap gap-6 pt-6 text-xs font-mono text-on-primary/60 uppercase tracking-widest"></div>
           </div>
 
           <div className="lg:col-span-5 hidden lg:block relative text-white">
@@ -562,7 +552,7 @@ const LandingHeroView = ({ setView, appName }: { setView: (v: GlobalView) => voi
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-14">
             <p className="font-mono text-[10px] font-bold text-secondary uppercase tracking-[0.3em] mb-4">
-              Rakamlarla ShipAI
+              Rakamlarla CYPEX
             </p>
             <h2 className="font-serif text-3xl md:text-5xl font-bold text-primary tracking-tight max-w-3xl mx-auto text-balance">
               Küresel denizcilik kararlarını besleyen veri.
@@ -644,7 +634,7 @@ const LandingHeroView = ({ setView, appName }: { setView: (v: GlobalView) => voi
             </h2>
             <p className="text-on-surface-variant leading-relaxed mb-8 text-pretty">
               Bir charterer bir günde ortalama 1.200 satır spreadsheet, 84
-              e-posta ve 12 telefon görüşmesi analiz eder. ShipAI bu yükün %80'ini
+              e-posta ve 12 telefon görüşmesi analiz eder. CYPEX bu yükün %80'ini
               alır; size sadece nihai karar kalır. Sonuç: daha hızlı işlem
               kapatma, daha az operasyonel hata ve daha yüksek marj.
             </p>
@@ -793,7 +783,7 @@ const SolutionsView = ({ setView }: { setView: (v: GlobalView) => void }) => {
       icon: Package,
       title: 'Kiracılar (Charterers) İçin',
       tagline: 'Kargonuz için doğru tonajı, doğru fiyata.',
-      desc: 'Sevkiyat parametrelerinizi tanımlayın, ShipAI binlerce gemi arasından laycan ve maliyetinize en uygun olanları sıralasın. Manuel taramaya elveda.',
+      desc: 'Sevkiyat parametrelerinizi tanımlayın, CYPEX binlerce gemi arasından laycan ve maliyetinize en uygun olanları sıralasın. Manuel taramaya elveda.',
       perks: [
         'Anında çoklu armatör teklifi',
         'Laycan & port detay doğrulama',
@@ -819,21 +809,6 @@ const SolutionsView = ({ setView }: { setView: (v: GlobalView) => void }) => {
       iconWrapClass: 'bg-secondary/10',
       iconClass: 'text-secondary',
     },
-    {
-      icon: BarChart3,
-      title: 'Finans & C-Seviye İçin',
-      tagline: 'Yatırım kararlarını veriyle alın.',
-      desc: 'BDI, FFA ve spot piyasa hareketlerini portföyünüz üzerinde simüle edin. Yönetim raporları otomatik hazırlanır; PDF & XLS olarak indirilebilir.',
-      perks: [
-        'Gerçek zamanlı P&L görünümü',
-        'Risk maruziyet haritası',
-        'Otomatik yönetim raporu',
-        'Konsolide finans paneli',
-      ],
-      cardClass: 'hover:border-primary',
-      iconWrapClass: 'bg-primary/10',
-      iconClass: 'text-primary',
-    },
   ];
 
   return (
@@ -843,7 +818,7 @@ const SolutionsView = ({ setView }: { setView: (v: GlobalView) => void }) => {
         badge="Sektörel Çözümler"
         title="Her rol için"
         highlight="özel tasarlanmış zekâ."
-        description="ShipAI; armatör, kiracı, operasyon ve finans ekiplerinin günlük iş akışlarını anlayarak her birine kendi diliyle konuşan paneller sunar."
+        description="CYPEX; armatör, kiracı, operasyon ve finans ekiplerinin günlük iş akışlarını anlayarak her birine kendi diliyle konuşan paneller sunar."
       />
 
       <section className="bg-surface px-6 md:px-8 py-20">
@@ -1062,16 +1037,6 @@ const FeaturesView = ({ setView }: { setView: (v: GlobalView) => void }) => {
         'BDI/FFA piyasa görünümü',
       ],
     },
-    {
-      title: 'Geliştirici Araçları',
-      icon: Database,
-      items: [
-        'REST API + Webhook',
-        'GraphQL endpoint (beta)',
-        'OAuth 2.0 + SSO',
-        'Sandbox ortamı',
-      ],
-    },
   ];
 
   return (
@@ -1081,7 +1046,7 @@ const FeaturesView = ({ setView }: { setView: (v: GlobalView) => void }) => {
         badge="Özellik Kataloğu"
         title="Bir denizcilik şirketinin"
         highlight="ihtiyaç duyduğu her şey."
-        description="ShipAI tek bir modül değil; brokerlık zincirinin baştan sona tüm halkalarını kapsayan birleşik bir komuta merkezidir."
+        description="CYPEX tek bir modül değil; brokerlık zincirinin baştan sona tüm halkalarını kapsayan birleşik bir komuta merkezidir."
       />
 
       <section className="bg-surface px-6 md:px-8 py-20">
@@ -1315,7 +1280,7 @@ const AboutView = ({ setView }: { setView: (v: GlobalView) => void }) => {
         badge="Hakkımızda"
         title="Denizciliği"
         highlight="dijitalleştirmek için kurulduk."
-        description="ShipAI; eski nesil brokerlık süreçlerini, denizcilik mühendisleri ile veri bilimcilerin ortak diliyle yeniden yazma misyonuyla doğdu."
+        description="CYPEX; eski nesil brokerlık süreçlerini, denizcilik mühendisleri ile veri bilimcilerin ortak diliyle yeniden yazma misyonuyla doğdu."
       />
 
       <section className="bg-surface px-6 md:px-8 py-20">
@@ -1323,7 +1288,7 @@ const AboutView = ({ setView }: { setView: (v: GlobalView) => void }) => {
           <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
             Denizcilik dünyası küresel ticaretin %80'ini taşır, ancak çoğu işlem
             hâlâ on yıllar öncesinin yöntemleriyle yürütülür: telefon zincirleri,
-            spreadsheet revizyonları, e-posta forwardları. ShipAI bu zincirleri
+            spreadsheet revizyonları, e-posta forwardları. CYPEX bu zincirleri
             kıran bir bağlayıcı katman olarak doğdu.
           </p>
           <p className="text-on-surface-variant leading-relaxed text-lg mb-6">
@@ -1385,7 +1350,7 @@ const ContactView = ({ setView }: { setView: (v: GlobalView) => void }) => {
     {
       icon: Mail,
       label: 'E-posta',
-      value: 'iletisim@shipai.io',
+      value: 'iletisim@cypex.io',
       desc: '24 saat içinde dönüş.',
     },
     {
@@ -1447,7 +1412,7 @@ const ContactView = ({ setView }: { setView: (v: GlobalView) => void }) => {
                 <input
                   required
                   className="w-full h-11 px-4 bg-surface-container-low border border-outline-variant rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none"
-                  placeholder="Can"
+                  placeholder="Ezgi"
                 />
               </div>
               <div className="space-y-1.5">
@@ -1457,7 +1422,7 @@ const ContactView = ({ setView }: { setView: (v: GlobalView) => void }) => {
                 <input
                   required
                   className="w-full h-11 px-4 bg-surface-container-low border border-outline-variant rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none"
-                  placeholder="Yılmaz"
+                  placeholder="Sağlamcı"
                 />
               </div>
             </div>
@@ -1470,7 +1435,7 @@ const ContactView = ({ setView }: { setView: (v: GlobalView) => void }) => {
                   required
                   type="email"
                   className="w-full h-11 px-4 bg-surface-container-low border border-outline-variant rounded-lg focus:border-secondary focus:ring-1 focus:ring-secondary transition-all outline-none"
-                  placeholder="can@maersk.com"
+                  placeholder="ezgisaglamci@gmail.com"
                 />
               </div>
               <div className="space-y-1.5">
@@ -3190,7 +3155,7 @@ const NegotiationRoomView = () => {
 const AppFooter = () => (
   <footer className="border-t border-outline-variant bg-surface px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
     <p className="text-[10px] font-mono uppercase tracking-widest text-on-surface-variant">
-      © 2026 ShipAI Technologies
+      © 2026 CYPEX 
     </p>
     <p className="text-[10px] font-sans text-on-surface-variant tracking-wide">
       Ezgi Sağlamcı tarafından hazırlanmıştır
@@ -3228,7 +3193,7 @@ export default function App() {
       case 'negotiation':
         return 'Müzakere Odası';
       default:
-        return 'ShipAI';
+        return 'CYPEX';
     }
   };
 
@@ -3358,10 +3323,10 @@ export default function App() {
             <div className="flex items-center gap-3 pl-2 cursor-pointer group">
               <div className="text-right hidden sm:block">
                 <p className="text-sm font-bold text-primary leading-tight">
-                  Ezgi Saglamci
+                  Ezgi Sağlamcı
                 </p>
                 <p className="text-[10px] text-on-surface-variant uppercase tracking-widest font-mono">
-                  Chartering Manager
+                  Charterıng Manager
                 </p>
               </div>
               <div className="w-10 h-10 rounded-full border border-outline-variant overflow-hidden ring-2 ring-transparent group-hover:ring-secondary/20 transition-all shadow-sm">

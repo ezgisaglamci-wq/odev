@@ -1,4 +1,4 @@
-# ShipAI — Denizcilik Lojistik Zekası
+# CYPEX — Denizcilik Lojistik Zekası
 
 Modern gemi brokerlığı için tasarlanmış yapay zeka destekli komuta merkezi. Armatörleri ve kiracıları akıllı eşleştirme, sefer takibi, müzakere odaları ve piyasa analizi araçlarıyla buluşturur.
 
